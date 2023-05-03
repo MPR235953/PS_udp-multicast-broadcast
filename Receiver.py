@@ -29,7 +29,7 @@ class Receiver(QObject):
             self.__is_multicast = multicast
 
             self.__receiver_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)  # Enable UDP
-            self.__receiver_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)  # Enable reusing address
+            self.__receiver_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # Enable reusing address
 
             if self.__is_multicast:
                 mreq = struct.pack("4sl", socket.inet_aton(self.__group_ip), socket.INADDR_ANY)

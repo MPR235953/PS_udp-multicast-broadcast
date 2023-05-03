@@ -26,7 +26,7 @@ class Transmitter(QObject):
             self.__is_multicast = multicast
 
             self.__transmitter_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)  # Enable UDP
-            self.__transmitter_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)  # Enable reusing address
+            self.__transmitter_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)  # Enable reusing address
 
             if self.__is_multicast:
                 self.__transmitter_socket.setsockopt(socket.IPPROTO_IP, socket.IP_MULTICAST_TTL, 2)
