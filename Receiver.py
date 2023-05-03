@@ -32,9 +32,9 @@ class Receiver(QObject):
             self.__receiver_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEPORT, 1)  # Enable reusing address
 
             if self.__is_multicast:
-                self.__receiver_socket.bind((self.__group_ip, self.__conn_port))
                 mreq = struct.pack("4sl", socket.inet_aton(self.__group_ip), socket.INADDR_ANY)
                 self.__receiver_socket.setsockopt(socket.IPPROTO_IP, socket.IP_ADD_MEMBERSHIP, mreq)
+                self.__receiver_socket.bind((self.__group_ip, self.__conn_port))
             else:
                 self.__receiver_socket.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)  # Enable broadcasting mode
                 self.__receiver_socket.bind(("", self.__conn_port))  # bind
