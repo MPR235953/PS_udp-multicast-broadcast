@@ -59,7 +59,7 @@ class Receiver(QObject):
             try:
                 recv, addr = self.__receiver_socket.recvfrom(utils.CONFIG['max_transfer'])
                 recv_len = len(recv)
-                print(str(recv.decode("utf-8")))
+                if str(recv.decode("utf-8")) == utils.CLIENT_DISCONNECT_KEY: continue
                 if recv_len > 0:
                     self.sig_update_receiver.emit(str(recv.decode("utf-8")) + ' - {} bytes'.format(recv_len))
                 else: break

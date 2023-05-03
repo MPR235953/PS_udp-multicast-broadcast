@@ -23,7 +23,7 @@ class ReceiverGUI(QMainWindow):
 
     def __setup_GUI(self):
 
-        self.setWindowTitle("Receiver")
+        self.setWindowTitle("Receiver - UDP")
         self.setGeometry(1000, 50, self.__width, self.__height)
 
         self.__set_conn()
@@ -37,7 +37,7 @@ class ReceiverGUI(QMainWindow):
         self.__lbIP = QtWidgets.QLabel(self)
         self.__lbIP.setGeometry(QtCore.QRect(60, 20, 100, 15))
         self.__lbIP.setObjectName("lbIP")
-        self.__lbIP.setText("Enter IP")
+        self.__lbIP.setText("Group IP")
         self.__lbIP.setEnabled(False)
 
         self.__teIP = QtWidgets.QTextEdit(self)
@@ -52,7 +52,7 @@ class ReceiverGUI(QMainWindow):
         self.__lbPort = QtWidgets.QLabel(self)
         self.__lbPort.setGeometry(QtCore.QRect(60, 75, 100, 15))
         self.__lbPort.setObjectName("lbPort")
-        self.__lbPort.setText("Enter Port")
+        self.__lbPort.setText("Conn Port")
 
         self.__tePort = QtWidgets.QTextEdit(self)
         self.__tePort.setGeometry(QtCore.QRect(60, 95, 100, 30))
